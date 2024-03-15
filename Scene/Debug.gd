@@ -1,0 +1,45 @@
+extends Node
+
+func _ready():
+	##var ill = DataStructure.MapTable.IndexedLinckedList.new()
+	##ill.add_node(4,"abc")
+	##ill.add_node(3,"def")
+	##ill.add_node(-2,"--22")
+	##ill.add_node(0,"0000")
+	##ill.add_node(6,"100100")
+	##print(ill.list_node())
+	##
+	##ill.print_check_node(100)
+	###
+	##ill.erase_node(3)
+	##print(ill.list_node())
+	##ill.erase_node(-1)
+	##print(ill.list_node())
+	##ill.erase_node(-2)
+	##print(ill.list_node())
+	##ill.erase_node(6)
+	##print(ill.list_node())
+	##ill.erase_node(0)
+	##print(ill.list_node())
+	##ill.erase_node(4)
+	##print(ill.list_node())
+	#
+	#var mt:DataStructure.MapTable = DataStructure.MapTable.new()
+	##mt.print_table()
+	##mt.print_coord(Vector2(0,4))
+	#mt.add_to_coord(Vector2(0,4),"0 4")
+	##mt.print_coord(Vector2(0,4))
+	#mt.add_to_coord(Vector2(5,6),"5 6")
+	#mt.add_to_coord(Vector2(5,8),"5 8")
+	#mt.add_to_coord(Vector2(-4,-8),"-4 -8")
+	#mt.add_to_coord(Vector2(5,7),"5 7")
+	#mt.add_to_coord(Vector2(3,8),"3 8")
+	#mt.erase_coord(Vector2(5,7))
+	#mt.erase_coord(Vector2(5,6))
+	#mt.erase_coord(Vector2(5,8))
+	#mt.erase_coord(Vector2(3,8))
+	#mt.erase_coord(Vector2(0,4))
+	#mt.erase_coord(Vector2(-4,-8))
+	#mt.print_table()
+	
+	pass

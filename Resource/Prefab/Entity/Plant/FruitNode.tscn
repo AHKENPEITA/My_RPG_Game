@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://b33qvrp0ii2ks"]
+
+[ext_resource type="Script" path="res://System/WorldObject/Entity/Plant/FruitNode.gd" id="1_cup1g"]
+[ext_resource type="Texture2D" uid="uid://b7wv46nldvhsh" path="res://Resource/Texture/Entity/TangerineTree.png" id="1_op5es"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vavf7"]
+atlas = ExtResource("1_op5es")
+region = Rect2(3, 82, 10, 12)
+
+[sub_resource type="Animation" id="Animation_2gwe4"]
+resource_name = "sway_left"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1.1, 1.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.279253, -0.139626, 0.0698132, -0.0349066, 0.0174533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_b0jfw"]
+resource_name = "sway_right"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1.1, 1.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.279253, 0.139626, -0.0698132, 0.0349066, -0.0174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nceqp"]
+_data = {
+"sway_left": SubResource("Animation_2gwe4"),
+"sway_right": SubResource("Animation_b0jfw")
+}
+
+[node name="FruitNode1" type="Node2D" node_paths=PackedStringArray("fruit_animation")]
+script = ExtResource("1_cup1g")
+fruit_animation = NodePath("FruitAnimation")
+
+[node name="Fruit" type="Sprite2D" parent="."]
+z_index = -1
+texture = SubResource("AtlasTexture_vavf7")
+offset = Vector2(0, 2)
+
+[node name="FruitAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nceqp")
+}

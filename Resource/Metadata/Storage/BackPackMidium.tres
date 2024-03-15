@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StorageResource" load_steps=2 format=3 uid="uid://peec5aqeio4b"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Storage/StorageResource.gd" id="1_nxm8s"]
+
+[resource]
+script = ExtResource("1_nxm8s")
+storage_id = "BackPackMidium"
+storage_name = "中型背包格子(8x8)"
+slot_id_set = ["Slot8x8"]

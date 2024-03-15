@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://cpuf34b3ehvk5"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Item/ItemResource.gd" id="1_drmaa"]
+[ext_resource type="Texture2D" uid="uid://dtt8c6nkek16t" path="res://Resource/Texture/Item/TestCoat.png" id="2_cuokn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gghrs"]
+atlas = ExtResource("2_cuokn")
+region = Rect2(0, 0, 48, 64)
+
+[resource]
+script = ExtResource("1_drmaa")
+id = "TestCoat"
+name = "测试用上衣"
+texture = SubResource("AtlasTexture_gghrs")
+size = Vector2(3, 4)
+stack_limit = 1
+weight = 12.0
+value = 1.0
+tag_list = {
+"Back": false,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": true,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}
+nutration_value_grain = 0
+nutration_value_vegetable = 0
+nutration_value_fruit = 0
+nutration_value_meat = 0
+nutration_value_egg_milk = 0
+nutration_value_fat = 0
+equip_type = 1
+durability = null
+storage_id = "Pocket2x3(2)"

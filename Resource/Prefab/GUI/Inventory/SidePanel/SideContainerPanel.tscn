@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://byr56x4jbkm6l"]
+
+[ext_resource type="StyleBox" uid="uid://cpk367gluv7ap" path="res://Resource/ThemeOverrides/ThemeOverridesPanel.tres" id="1_vqr41"]
+[ext_resource type="Script" path="res://System/GUI/Inventory/SideContainerPanel.gd" id="2_n6m68"]
+[ext_resource type="LabelSettings" uid="uid://jsx8hxn5icpq" path="res://Resource/Font/FontSetting01.tres" id="4_gegbl"]
+
+[node name="SideContainerPanel" type="Panel" node_paths=PackedStringArray("storage_panel_area", "container_name_label")]
+custom_minimum_size = Vector2(192, 270)
+offset_top = -270.0
+offset_right = 192.0
+theme_override_styles/panel = ExtResource("1_vqr41")
+script = ExtResource("2_n6m68")
+storage_panel_area = NodePath("StoragePanelArea")
+container_name_label = NodePath("ContainerNameLabel")
+
+[node name="StoragePanelArea" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 176.0
+offset_bottom = 224.0
+
+[node name="ContainerNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -88.0
+offset_top = 15.0
+offset_right = 280.0
+offset_bottom = 31.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(184, 8)
+text = "容器名称"
+label_settings = ExtResource("4_gegbl")
+horizontal_alignment = 1

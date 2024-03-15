@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bqhaor0lwal22"]
+
+[ext_resource type="FontFile" uid="uid://bnsgstffds2n1" path="res://Resource/Font/unifont-15.0.01.otf" id="1_12pyy"]
+
+[resource]
+default_font = ExtResource("1_12pyy")
+default_font_size = 10

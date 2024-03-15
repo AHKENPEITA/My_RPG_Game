@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SlotResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Slot/SlotResource.gd" id="1_7thqe"]
+
+[resource]
+script = ExtResource("1_7thqe")
+slot_id = "SlotToolVice"
+grid_size = Vector2(6, 1)
+is_vessel_port = true
+is_exclusive = true
+black_list = {
+"Back": false,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}
+white_list = {
+"Back": false,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": true,
+"Trousers": false
+}

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StorageResource" load_steps=2 format=3 uid="uid://ldp3flmjj67l"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Storage/StorageResource.gd" id="1_ctunh"]
+
+[resource]
+script = ExtResource("1_ctunh")
+storage_id = "HaversackMidium"
+storage_name = "中型行囊格子(4x4)"
+slot_id_set = ["Slot4x4"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cic2f6xl5bdh2"]
+
+[ext_resource type="Script" path="res://System/WorldObject/Entity/Craft/Crates.gd" id="1_uixmr"]
+[ext_resource type="Texture2D" uid="uid://cuhrufu8eaqrj" path="res://Resource/Texture/Entity/Crates.png" id="1_vqy25"]
+[ext_resource type="PackedScene" uid="uid://biaelp5n4olub" path="res://Resource/Prefab/Entity/Appendent/Interactor.tscn" id="2_84gpe"]
+[ext_resource type="Script" path="res://System/ItemSystem/Storage/Container.gd" id="4_5f7cr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5cks"]
+size = Vector2(32, 16)
+
+[node name="Crates" type="StaticBody2D" node_paths=PackedStringArray("container", "interactor1", "interactor2")]
+script = ExtResource("1_uixmr")
+container = NodePath("Container")
+interactor1 = NodePath("Interactor1")
+interactor2 = NodePath("Interactor2")
+occupied_coords = [Vector2(0, 0), Vector2(1, 0)]
+
+[node name="CratesSprite" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = ExtResource("1_vqy25")
+offset = Vector2(0, -8)
+
+[node name="CratesShape" type="CollisionShape2D" parent="."]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_x5cks")
+
+[node name="Interactor1" parent="." instance=ExtResource("2_84gpe")]
+
+[node name="Interactor2" parent="." instance=ExtResource("2_84gpe")]
+position = Vector2(16, 0)
+
+[node name="Container" type="Node" parent="."]
+script = ExtResource("4_5f7cr")
+storage_id = "Creats"
+container_name = "板条箱"
+
+[connection signal="interect" from="Interactor1" to="." method="interact"]
+[connection signal="interect" from="Interactor2" to="." method="interact"]

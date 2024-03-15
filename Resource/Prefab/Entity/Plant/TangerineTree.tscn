@@ -1,0 +1,514 @@
+[gd_scene load_steps=33 format=3 uid="uid://cf0gyau8xfqpn"]
+
+[ext_resource type="Texture2D" uid="uid://b7wv46nldvhsh" path="res://Resource/Texture/Entity/TangerineTree.png" id="1_67c73"]
+[ext_resource type="PackedScene" uid="uid://biaelp5n4olub" path="res://Resource/Prefab/Entity/Appendent/Interactor.tscn" id="1_l3gye"]
+[ext_resource type="Script" path="res://System/WorldObject/Entity/Plant/TreeEntity.gd" id="1_v1ecl"]
+[ext_resource type="PackedScene" uid="uid://b33qvrp0ii2ks" path="res://Resource/Prefab/Entity/Plant/FruitNode.tscn" id="3_3m6pl"]
+[ext_resource type="Script" path="res://System/WorldObject/Entity/Plant/FruitManager.gd" id="3_byek0"]
+[ext_resource type="PackedScene" uid="uid://4y181sy5hbc3" path="res://Resource/Prefab/Entity/Appendent/ShakeArea.tscn" id="4_5y0ng"]
+[ext_resource type="PackedScene" uid="uid://q4pdhn2yo3rr" path="res://Resource/Prefab/Entity/Appendent/TransparentArea.tscn" id="5_3l0xj"]
+
+[sub_resource type="Animation" id="Animation_wxeeu"]
+resource_name = "attack_left"
+
+[sub_resource type="Animation" id="Animation_1f4of"]
+resource_name = "attack_right"
+
+[sub_resource type="Animation" id="Animation_qdfea"]
+resource_name = "interact_left"
+length = 0.8
+step = 0.05
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrunkSprite/TrunkAnimation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("interact_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrunkSprite/LeafSprite/LeafAnimation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("interact_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tfgjc"]
+resource_name = "interact_right"
+length = 0.8
+step = 0.05
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrunkSprite/TrunkAnimation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("interact_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrunkSprite/LeafSprite/LeafAnimation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("interact_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pr7gy"]
+resource_name = "sway_left"
+length = 3.2
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrunkSprite/LeafSprite/LeafAnimation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("sway_left"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_axr6t"]
+resource_name = "sway_right"
+length = 3.2
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrunkSprite/LeafSprite/LeafAnimation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("sway_right"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ebsi"]
+_data = {
+"attack_left": SubResource("Animation_wxeeu"),
+"attack_right": SubResource("Animation_1f4of"),
+"interact_left": SubResource("Animation_qdfea"),
+"interact_right": SubResource("Animation_tfgjc"),
+"sway_left": SubResource("Animation_pr7gy"),
+"sway_right": SubResource("Animation_axr6t")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrcre"]
+atlas = ExtResource("1_67c73")
+region = Rect2(4, 4, 38, 44)
+
+[sub_resource type="Animation" id="Animation_7dh3o"]
+resource_name = "attack_left"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.5, 0), Vector2(1, 0), Vector2(-0.5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8y0cc"]
+resource_name = "attack_right"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.5, 0), Vector2(-1, 0), Vector2(0.5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gcvm3"]
+resource_name = "interact_left"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.35, 0.5, 0.65, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0436332, -0.0349066, 0.0261799, -0.0174533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2aviu"]
+resource_name = "interact_right"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.05, 0.2, 0.35, 0.5, 0.65, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0523599, -0.0436332, 0.0349066, -0.0261799, 0.0174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q3u6i"]
+_data = {
+"attack_left": SubResource("Animation_7dh3o"),
+"attack_right": SubResource("Animation_8y0cc"),
+"interact_left": SubResource("Animation_gcvm3"),
+"interact_right": SubResource("Animation_2aviu")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b851c"]
+atlas = ExtResource("1_67c73")
+region = Rect2(3, 48, 42, 30)
+
+[sub_resource type="Animation" id="Animation_jtk4d"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_njpqr"]
+resource_name = "interact_left"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.35, 0.5, 0.65, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.139626, 0.10472, -0.0698132, 0.0349066, -0.0174533, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FruitManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-1, 0)],
+"method": &"release_fruit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nrgeo"]
+resource_name = "interact_right"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2, 0.35, 0.5, 0.65, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.139626, -0.10472, 0.0698132, -0.0349066, 0.0174533, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FruitManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(1, 0)],
+"method": &"release_fruit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1aexy"]
+resource_name = "sway_left"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8, 1.4, 2, 2.6, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0698132, 0.0523599, -0.0349066, 0.0174533, -0.00872665, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FruitManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-1, 0)],
+"method": &"sway_fruit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sa5lt"]
+resource_name = "sway_right"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8, 1.4, 2, 2.6, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0698132, -0.0523599, 0.0349066, -0.0174533, 0.00872665, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FruitManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(1, 0)],
+"method": &"sway_fruit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ift35"]
+_data = {
+"RESET": SubResource("Animation_jtk4d"),
+"interact_left": SubResource("Animation_njpqr"),
+"interact_right": SubResource("Animation_nrgeo"),
+"sway_left": SubResource("Animation_1aexy"),
+"sway_right": SubResource("Animation_sa5lt")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkqnp"]
+atlas = ExtResource("1_67c73")
+region = Rect2(66, 36, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ksa"]
+atlas = ExtResource("1_67c73")
+region = Rect2(52, 52, 38, 38)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33q1j"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgqrt"]
+size = Vector2(36, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23cbq"]
+radius = 32.0
+
+[node name="TangerineTree" type="StaticBody2D" node_paths=PackedStringArray("tree_animation", "trunk_sprite", "leaf_sprite", "root_sprite", "branch_sprite", "fruit_manager", "interactor")]
+y_sort_enabled = true
+script = ExtResource("1_v1ecl")
+tree_animation = NodePath("TreeAnimation")
+trunk_sprite = NodePath("TrunkSprite")
+leaf_sprite = NodePath("TrunkSprite/LeafSprite")
+root_sprite = NodePath("RootSprite")
+branch_sprite = NodePath("BranchSprite")
+fruit_manager = NodePath("TrunkSprite/LeafSprite/FruitManager")
+interactor = NodePath("Interactor")
+occupied_coords = [Vector2(0, 0)]
+
+[node name="TreeAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ebsi")
+}
+
+[node name="TrunkSprite" type="Sprite2D" parent="."]
+rotation = -0.00131474
+texture = SubResource("AtlasTexture_hrcre")
+offset = Vector2(-1, -18)
+
+[node name="TrunkAnimation" type="AnimationPlayer" parent="TrunkSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_q3u6i")
+}
+
+[node name="LeafSprite" type="Sprite2D" parent="TrunkSprite"]
+z_index = 1
+position = Vector2(0, -21)
+texture = SubResource("AtlasTexture_b851c")
+offset = Vector2(0, -9)
+
+[node name="LeafAnimation" type="AnimationPlayer" parent="TrunkSprite/LeafSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_ift35")
+}
+
+[node name="FruitManager" type="Node2D" parent="TrunkSprite/LeafSprite"]
+script = ExtResource("3_byek0")
+
+[node name="FruitNode1" parent="TrunkSprite/LeafSprite/FruitManager" instance=ExtResource("3_3m6pl")]
+position = Vector2(-13, -2)
+
+[node name="FruitNode2" parent="TrunkSprite/LeafSprite/FruitManager" instance=ExtResource("3_3m6pl")]
+position = Vector2(0, 1)
+
+[node name="FruitNode3" parent="TrunkSprite/LeafSprite/FruitManager" instance=ExtResource("3_3m6pl")]
+position = Vector2(13, -1)
+
+[node name="FruitNode4" parent="TrunkSprite/LeafSprite/FruitManager" instance=ExtResource("3_3m6pl")]
+position = Vector2(-8, -14)
+
+[node name="FruitNode5" parent="TrunkSprite/LeafSprite/FruitManager" instance=ExtResource("3_3m6pl")]
+position = Vector2(9, -13)
+
+[node name="RootSprite" type="Sprite2D" parent="."]
+visible = false
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_kkqnp")
+offset = Vector2(0, -2)
+
+[node name="BranchSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_21ksa")
+offset = Vector2(-1, -21)
+
+[node name="Shape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_33q1j")
+
+[node name="SwayArea" parent="." instance=ExtResource("4_5y0ng")]
+visible = false
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwayArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_qgqrt")
+
+[node name="TransparentArea" parent="." node_paths=PackedStringArray("transparent_shape") instance=ExtResource("5_3l0xj")]
+visible = false
+position = Vector2(0, -4)
+transparent_shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransparentArea"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_23cbq")
+
+[node name="Interactor" parent="." instance=ExtResource("1_l3gye")]
+visible = false
+
+[connection signal="sway_direction" from="SwayArea" to="." method="sway"]
+[connection signal="transparent_parameter" from="TransparentArea" to="." method="transparent"]
+[connection signal="interect" from="Interactor" to="." method="interect"]

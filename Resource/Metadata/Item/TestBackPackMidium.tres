@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://cvbb5vs8sl4rx"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Item/ItemResource.gd" id="1_4arf1"]
+[ext_resource type="Texture2D" uid="uid://duwq6f5bjxt87" path="res://Resource/Texture/Item/TestBackPackMidium.png" id="2_gkd0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmb11"]
+atlas = ExtResource("2_gkd0d")
+region = Rect2(0, 0, 48, 48)
+
+[resource]
+script = ExtResource("1_4arf1")
+id = "TestBackPackMidium"
+name = "测试中型背包"
+texture = SubResource("AtlasTexture_lmb11")
+size = Vector2(3, 3)
+stack_limit = 1
+weight = 15.0
+value = 20.0
+tag_list = {
+"Back": true,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}
+nutration_value_grain = 0
+nutration_value_vegetable = 0
+nutration_value_fruit = 0
+nutration_value_meat = 0
+nutration_value_egg_milk = 0
+nutration_value_fat = 0
+equip_type = 4
+durability = null
+storage_id = "BackPackMidium"

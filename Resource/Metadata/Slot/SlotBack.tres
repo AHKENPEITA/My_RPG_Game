@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SlotResource" load_steps=2 format=3 uid="uid://dne7fdut6sy6p"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Slot/SlotResource.gd" id="1_27iud"]
+
+[resource]
+script = ExtResource("1_27iud")
+slot_id = "SlotBack"
+grid_size = Vector2(3, 4)
+is_carrier_port = true
+is_exclusive = true
+black_list = {
+"Back": false,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}
+white_list = {
+"Back": true,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}

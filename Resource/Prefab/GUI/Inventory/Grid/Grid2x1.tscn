@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c07f4klrpfx3y"]
+
+[ext_resource type="Script" path="res://System/GUI/Inventory/Grid.gd" id="1_312uk"]
+[ext_resource type="PackedScene" uid="uid://dn8uextl41vlg" path="res://Resource/Prefab/GUI/Inventory/Cell/Cell.tscn" id="2_5h6kr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uab26"]
+bg_color = Color(0.803922, 0.803922, 0.803922, 0.670588)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yui1"]
+
+[node name="Grid" type="Panel"]
+offset_right = 32.0
+offset_bottom = 16.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_uab26")
+script = ExtResource("1_312uk")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Slot" parent="GridContainer" instance=ExtResource("2_5h6kr")]
+layout_mode = 2
+
+[node name="Slot2" parent="GridContainer" instance=ExtResource("2_5h6kr")]
+layout_mode = 2
+
+[node name="RectContainer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1yui1")

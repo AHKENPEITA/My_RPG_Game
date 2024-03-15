@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SlotResource" load_steps=2 format=3 uid="uid://bplyqjrosulx2"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Slot/SlotResource.gd" id="1_wr7a5"]
+
+[resource]
+script = ExtResource("1_wr7a5")
+slot_id = "SlotHaversack"
+grid_size = Vector2(3, 3)
+is_carrier_port = true
+is_exclusive = true
+black_list = {
+"Back": false,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}
+white_list = {
+"Back": false,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": true,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}

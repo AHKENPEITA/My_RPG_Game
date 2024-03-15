@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StorageResource" load_steps=2 format=3 uid="uid://dheu1m42ph424"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Storage/StorageResource.gd" id="1_u64ya"]
+
+[resource]
+script = ExtResource("1_u64ya")
+storage_id = "Pocket2x2(2)"
+storage_name = "裤子左右侧包(2x2)"
+slot_id_set = ["Slot2x2", "Slot2x2"]

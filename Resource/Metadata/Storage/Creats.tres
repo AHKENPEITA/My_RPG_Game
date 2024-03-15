@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StorageResource" load_steps=2 format=3 uid="uid://boc4vdpvitldq"]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Storage/StorageResource.gd" id="1_46tvy"]
+
+[resource]
+script = ExtResource("1_46tvy")
+storage_id = "Creats"
+storage_name = "板条箱格子(10x12)"
+slot_id_set = ["Slot10x12"]

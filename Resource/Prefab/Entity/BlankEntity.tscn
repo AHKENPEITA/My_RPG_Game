@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvyvu6r533473"]
+
+[ext_resource type="PackedScene" uid="uid://biaelp5n4olub" path="res://Resource/Prefab/Entity/Appendent/Interactor.tscn" id="3_6fose"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33q1j"]
+radius = 4.0
+
+[node name="Entity" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+offset = Vector2(0, -8)
+
+[node name="Shape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_33q1j")
+
+[node name="Interactor" parent="." instance=ExtResource("3_6fose")]

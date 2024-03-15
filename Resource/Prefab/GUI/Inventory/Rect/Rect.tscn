@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" uid="uid://5v4jalgwbopq" path="res://Resource/Texture/Item/BerryFruit.png" id="1_toy5w"]
+[ext_resource type="Script" path="res://System/GUI/Inventory/Rect.gd" id="2_05cij"]
+[ext_resource type="FontFile" uid="uid://bnsgstffds2n1" path="res://Resource/Font/unifont-15.0.01.otf" id="3_s3qo1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8pkp"]
+line_spacing = 0.0
+font = ExtResource("3_s3qo1")
+
+[node name="ItemRect" type="TextureRect"]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_toy5w")
+script = ExtResource("2_05cij")
+
+[node name="AmountLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(16, 16)
+text = "16
+"
+label_settings = SubResource("LabelSettings_l8pkp")
+horizontal_alignment = 2
+vertical_alignment = 2

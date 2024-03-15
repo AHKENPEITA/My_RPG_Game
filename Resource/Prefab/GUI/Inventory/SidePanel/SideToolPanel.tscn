@@ -1,0 +1,235 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmqm86ix55uix"]
+
+[ext_resource type="StyleBox" uid="uid://cpk367gluv7ap" path="res://Resource/ThemeOverrides/ThemeOverridesPanel.tres" id="1_a5gn6"]
+[ext_resource type="Script" path="res://System/GUI/Inventory/SideToolPanel.gd" id="2_trdrk"]
+[ext_resource type="PackedScene" uid="uid://0g88m6d8jftd" path="res://Resource/Prefab/GUI/Inventory/Grid/Grid8x2.tscn" id="3_2cup1"]
+[ext_resource type="PackedScene" uid="uid://dafxwx7tx1fqe" path="res://Resource/Prefab/GUI/Inventory/Grid/Grid6x1.tscn" id="4_e2ilw"]
+[ext_resource type="LabelSettings" uid="uid://jsx8hxn5icpq" path="res://Resource/Font/FontSetting01.tres" id="5_xbv0w"]
+
+[sub_resource type="Animation" id="Animation_q7pke"]
+resource_name = "DropIn"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-270, 0, 0, 0, 270, 0, -0.3, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4mg2y"]
+resource_name = "DropOut"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, 270, 270, -0.3, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8hfbn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_kual3"]
+resource_name = "RiseIn"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(270, 0, 0, 0, -270, 0, -0.3, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xolj5"]
+resource_name = "RiseOut"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, -270, -270, 0, -0.3, 0, 0),
+"times": PackedFloat32Array(0, 0.6)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jwws"]
+_data = {
+"DropIn": SubResource("Animation_q7pke"),
+"DropOut": SubResource("Animation_4mg2y"),
+"RESET": SubResource("Animation_8hfbn"),
+"RiseIn": SubResource("Animation_kual3"),
+"RiseOut": SubResource("Animation_xolj5")
+}
+
+[node name="SideToolPanel" type="Panel" node_paths=PackedStringArray("grid_tool_main1", "grid_tool_main2", "grid_tool_vice1", "grid_tool_vice2")]
+custom_minimum_size = Vector2(192, 270)
+offset_right = 192.0
+offset_bottom = 270.0
+theme_override_styles/panel = ExtResource("1_a5gn6")
+script = ExtResource("2_trdrk")
+grid_tool_main1 = NodePath("GridToolMain1")
+grid_tool_main2 = NodePath("GridToolMain2")
+grid_tool_vice1 = NodePath("GridToolVice1")
+grid_tool_vice2 = NodePath("GridToolVice2")
+
+[node name="GridToolMain1" parent="." instance=ExtResource("3_2cup1")]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 48.0
+
+[node name="GridToolMain2" parent="." instance=ExtResource("3_2cup1")]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 144.0
+offset_bottom = 96.0
+
+[node name="GridToolVice1" parent="." instance=ExtResource("4_e2ilw")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 112.0
+offset_bottom = 128.0
+
+[node name="GridToolVice2" parent="." instance=ExtResource("4_e2ilw")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 112.0
+offset_bottom = 160.0
+
+[node name="LabelToolMain" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+text = "主武器"
+label_settings = ExtResource("5_xbv0w")
+horizontal_alignment = 1
+
+[node name="LabelToolMain2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 52.0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+text = "主武器"
+label_settings = ExtResource("5_xbv0w")
+horizontal_alignment = 1
+
+[node name="LabelToolVice" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 100.0
+offset_right = 64.0
+offset_bottom = 112.0
+scale = Vector2(0.5, 0.5)
+text = "副武器"
+label_settings = ExtResource("5_xbv0w")
+horizontal_alignment = 1
+
+[node name="LabelToolVice2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 132.0
+offset_right = 64.0
+offset_bottom = 144.0
+scale = Vector2(0.5, 0.5)
+text = "副武器"
+label_settings = ExtResource("5_xbv0w")
+horizontal_alignment = 1
+
+[node name="AnimationTool" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_5jwws")
+}

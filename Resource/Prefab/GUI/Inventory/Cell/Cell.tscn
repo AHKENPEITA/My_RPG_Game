@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn8uextl41vlg"]
+
+[ext_resource type="Script" path="res://System/GUI/Inventory/Cell.gd" id="1_2obsm"]
+
+[node name="Cell" type="ColorRect"]
+custom_minimum_size = Vector2(16, 16)
+mouse_filter = 2
+color = Color(1, 1, 1, 0.247059)
+script = ExtResource("1_2obsm")

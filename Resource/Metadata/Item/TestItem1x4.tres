@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="ItemClass" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://System/ItemSystem/Item/ItemResource.gd" id="1_a6rrp"]
+[ext_resource type="Texture2D" uid="uid://cdpjvvcvdl3ri" path="res://Resource/Texture/Item/Debug.png" id="2_hqvyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o3ei"]
+atlas = ExtResource("2_hqvyr")
+region = Rect2(0, 96, 16, 64)
+
+[resource]
+script = ExtResource("1_a6rrp")
+id = "TestItem1x4"
+name = "1x4"
+texture = SubResource("AtlasTexture_8o3ei")
+size = Vector2(1, 4)
+stack_limit = 16
+weight = 0.0
+value = 0.0
+tag_list = {
+"Back": false,
+"Belt": false,
+"Boot": false,
+"Bracelet": false,
+"Coat": false,
+"Hat": false,
+"Haversack": false,
+"Headwear": false,
+"Pandant": false,
+"Tool": false,
+"Trousers": false
+}
+nutration_value_grain = 0
+nutration_value_vegetable = 0
+nutration_value_fruit = 0
+nutration_value_meat = 0
+nutration_value_egg_milk = 0
+nutration_value_fat = 0
+equip_type = null
+durability = null
+vessel_path = null

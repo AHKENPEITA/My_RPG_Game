@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://biaelp5n4olub"]
+
+[ext_resource type="Script" path="res://System/WorldObject/Entity/Interactor.gd" id="1_4lgxt"]
+
+[node name="Interactor" type="Node2D"]
+script = ExtResource("1_4lgxt")

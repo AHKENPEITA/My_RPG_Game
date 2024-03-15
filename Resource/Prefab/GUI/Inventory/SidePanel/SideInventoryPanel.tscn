@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://d013jivwqhv8p"]
+
+[ext_resource type="StyleBox" uid="uid://cpk367gluv7ap" path="res://Resource/ThemeOverrides/ThemeOverridesPanel.tres" id="1_juvnh"]
+[ext_resource type="Script" path="res://System/GUI/Inventory/SideInventoryPanel.gd" id="2_06fg3"]
+[ext_resource type="PackedScene" uid="uid://behpcm1cmrxfl" path="res://Resource/Prefab/GUI/Inventory/Grid/Grid6x4.tscn" id="3_kg45x"]
+[ext_resource type="LabelSettings" uid="uid://jsx8hxn5icpq" path="res://Resource/Font/FontSetting01.tres" id="4_3owfr"]
+
+[node name="SideInventoryPanel" type="Panel" node_paths=PackedStringArray("grid_belongings", "carrier_display_area", "storage_panel_area", "carrier_name_label", "storage_name_label")]
+custom_minimum_size = Vector2(192, 270)
+offset_right = 192.0
+offset_bottom = 270.0
+theme_override_styles/panel = ExtResource("1_juvnh")
+script = ExtResource("2_06fg3")
+grid_belongings = NodePath("GridBelongings")
+carrier_display_area = NodePath("CarrierDisplayArea")
+storage_panel_area = NodePath("StoragePanelArea")
+carrier_name_label = NodePath("CarrierNameLabel")
+storage_name_label = NodePath("StorageNameLabel")
+carrier_default_name = "格子装备"
+storage_default_name = "装备附加格子"
+
+[node name="GridBelongings" parent="." instance=ExtResource("3_kg45x")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 80.0
+grow_horizontal = 0
+
+[node name="CarrierDisplayArea" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 80.0
+
+[node name="StoragePanelArea" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 176.0
+offset_bottom = 256.0
+
+[node name="CarrierNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_right = 128.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(40, 8)
+text = "装备名字栏"
+label_settings = ExtResource("4_3owfr")
+horizontal_alignment = 1
+
+[node name="PossessionLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 176.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(48, 8)
+text = "物品栏"
+label_settings = ExtResource("4_3owfr")
+horizontal_alignment = 1
+
+[node name="StorageNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 80.0
+offset_right = 132.0
+offset_bottom = 96.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(32, 8)
+text = "容器内容"
+label_settings = ExtResource("4_3owfr")
+horizontal_alignment = 1

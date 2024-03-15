@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://jsx8hxn5icpq"]
+
+[ext_resource type="FontFile" uid="uid://bnsgstffds2n1" path="res://Resource/Font/unifont-15.0.01.otf" id="1_igfux"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_igfux")
+font_color = Color(0.65098, 0.65098, 0.65098, 1)
+shadow_size = 0

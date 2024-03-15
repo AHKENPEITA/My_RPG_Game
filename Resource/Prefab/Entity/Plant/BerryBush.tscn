@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg655y45ajbwf"]
+
+[ext_resource type="Script" path="res://System/WorldObject/Entity/Plant/BerryBushScript.gd" id="1_kmjy5"]
+[ext_resource type="Texture2D" uid="uid://dhvd8ovjfkin4" path="res://Resource/Texture/Entity/BerryBush.png" id="2_qoigy"]
+[ext_resource type="PackedScene" uid="uid://biaelp5n4olub" path="res://Resource/Prefab/Entity/Appendent/Interactor.tscn" id="3_7box6"]
+[ext_resource type="PackedScene" uid="uid://4y181sy5hbc3" path="res://Resource/Prefab/Entity/Appendent/ShakeArea.tscn" id="4_143ta"]
+
+[sub_resource type="Animation" id="Animation_dtjdo"]
+resource_name = "sway_left"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.7, 1, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.279253, 0.139626, -0.0698132, 0.0349066, -0.0174533, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_plcsq"]
+resource_name = "sway_right"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.7, 1, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.279253, -0.139626, 0.0698132, -0.0349066, 0.0174533, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"lock_animation"
+}, {
+"args": [],
+"method": &"unlock_animation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_joqyr"]
+_data = {
+"sway_left": SubResource("Animation_dtjdo"),
+"sway_right": SubResource("Animation_plcsq")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0yjc"]
+radius = 3.0
+height = 10.0
+
+[node name="BerryBush" type="Node2D" node_paths=PackedStringArray("Interactor", "sprite", "sway_animation")]
+y_sort_enabled = true
+script = ExtResource("1_kmjy5")
+Interactor = NodePath("Interactor")
+sprite = NodePath("BerryBushSprite")
+sway_animation = NodePath("BerryBushSprite/SwayAnimation")
+occupied_coords = [Vector2(0, 0)]
+
+[node name="BerryBushSprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 2)
+texture = ExtResource("2_qoigy")
+offset = Vector2(0, -6)
+hframes = 9
+frame = 2
+
+[node name="SwayAnimation" type="AnimationPlayer" parent="BerryBushSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_joqyr")
+}
+
+[node name="Interactor" parent="." instance=ExtResource("3_7box6")]
+
+[node name="SwayArea" parent="." instance=ExtResource("4_143ta")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwayArea"]
+position = Vector2(0, 7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_a0yjc")
+
+[connection signal="interect" from="Interactor" to="." method="interect"]
+[connection signal="sway_direction" from="SwayArea" to="." method="sway"]
