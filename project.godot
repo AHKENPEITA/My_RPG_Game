@@ -44,8 +44,9 @@ folder_colors={
 "res://Resource/": "red",
 "res://Resource/Audio/": "red",
 "res://Resource/Font/": "orange",
-"res://Resource/Metadata/": "yellow",
-"res://Resource/Prefab/": "green",
+"res://Resource/Image/": "yellow",
+"res://Resource/Metadata/": "green",
+"res://Resource/Prefab/": "teal",
 "res://Resource/Prefab/Animmation/": "purple",
 "res://Resource/Prefab/Entity/": "orange",
 "res://Resource/Prefab/Entity/Appendent/": "red",
@@ -53,8 +54,8 @@ folder_colors={
 "res://Resource/Prefab/Entity/Craft/": "yellow",
 "res://Resource/Prefab/Entity/Plant/": "green",
 "res://Resource/Prefab/GUI/": "green",
-"res://Resource/Texture/": "teal",
-"res://Resource/ThemeOverrides/": "blue",
+"res://Resource/Texture/": "blue",
+"res://Resource/ThemeOverrides/": "purple",
 "res://Scene/": "purple",
 "res://System/": "gray"
 }
